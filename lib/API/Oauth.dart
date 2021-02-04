@@ -232,9 +232,10 @@ abstract class Auth {
         isAuthOk = false;
       }
     }
-    if(isCheck) return false;
+    
     // Check if the scope has changed
     if (tokenStored.scope != scope || _token == "null" || _token == null) {
+      if(isCheck) return false;
       // Ask for a new authorization
       globals.displayInfo('Doing a new authorization');
       isAuthOk = await _newAuthorization(clientID, secret, scope, prompt);
