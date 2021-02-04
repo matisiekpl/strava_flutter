@@ -201,7 +201,7 @@ abstract class Auth {
   /// Do/show the Strava login if the scope has been changed since last storage of the token
   /// return true if no problem in authentication has been found
   Future<bool> oauth(
-      String clientID, String scope, String secret, String prompt) async {
+      String clientID, String scope, String secret, String prompt, bool isCheck=false) async {
     globals.displayInfo('Welcome to Oauth');
     bool isAuthOk = false;
     bool isExpired;
@@ -232,7 +232,7 @@ abstract class Auth {
         isAuthOk = false;
       }
     }
-
+    if(isCheck) return false;
     // Check if the scope has changed
     if (tokenStored.scope != scope || _token == "null" || _token == null) {
       // Ask for a new authorization
