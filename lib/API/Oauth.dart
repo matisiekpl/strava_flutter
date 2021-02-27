@@ -119,7 +119,7 @@ abstract class Auth {
     launch(reqAuth,
         forceWebView: false,
         // forceWebView: true,
-        forceSafariVC: false,
+        forceSafariVC: true,
         enableJavaScript: true);
 
     //--------  NOT working yet on web
